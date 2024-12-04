@@ -19,4 +19,5 @@
     <body class="font-sans antialiased">
         @inertia
     </body>
+    <script src="https://liveness.everify.gov.ph/js/everify-liveness-sdk.min.js"></script>
 </html>
