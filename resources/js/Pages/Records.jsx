@@ -162,8 +162,8 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
             <Head title="Records" />
 
             <Modal show={openModal} onClose={handleCloseModal}>
-                <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                    <button type="button" onClick={handleCloseModal} className="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="popup-modal">
+                <div className="relative bg-white rounded-lg shadow">
+                    <button type="button" onClick={handleCloseModal} className="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="popup-modal">
                         <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                         </svg>
@@ -175,7 +175,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                 return (
                                     <>
                                         <svg className="h-24 w-24 text-green-500 mx-auto mb-5"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="3"  strokeLinecap="round"  strokeLinejoin="round">  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />  <polyline points="22 4 12 14.01 9 11.01" /></svg>
-                                        <h3 className="text-lg font-normal text-gray-500 dark:text-gray-400">Verified!</h3>
+                                        <h3 className="text-lg font-normal text-gray-500">Verified!</h3>
                                     </>
                                 );
                             }
@@ -183,7 +183,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                 return (
                                     <>
                                         <svg className="h-24 w-24 text-red-500 mx-auto mb-5"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round">  <circle cx="12" cy="12" r="10" />  <line x1="12" y1="8" x2="12" y2="12" />  <line x1="12" y1="16" x2="12.01" y2="16" /></svg>
-                                        <h3 className="text-lg font-normal text-gray-500 dark:text-gray-400">Verification Failed!</h3>
+                                        <h3 className="text-lg font-normal text-gray-500">Verification Failed!</h3>
                                     </>
                                 );
                             }
@@ -206,7 +206,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             <div className='flex justify-center items-center'>
                                                 <svg
                                                     aria-hidden="true"
-                                                    className="h-8 w-8 animate-spin fill-blue-600 text-gray-200 dark:text-gray-600"
+                                                    className="h-8 w-8 animate-spin fill-blue-600 text-gray-200"
                                                     viewBox="0 0 100 101"
                                                     fill="none"
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -236,7 +236,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                 if(isVerified){
                                     return (
                                         <div
-                                            className="mb-4 mt-3 rounded-lg bg-green-50 p-4 text-center text-lg text-green-800 dark:bg-gray-800 dark:text-green-400"
+                                            className="mb-4 mt-3 rounded-lg bg-green-50 p-4 text-center text-lg text-green-800"
                                             role="alert"
                                         >
                                             <strong className="font-medium">
@@ -248,7 +248,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                 if(verificationStatus == false){
                                     return (
                                         <div
-                                            className="mb-4 mt-3 rounded-lg bg-red-50 p-4 text-center text-lg text-red-800 dark:bg-gray-800 dark:text-red-400"
+                                            className="mb-4 mt-3 rounded-lg bg-red-50 p-4 text-center text-lg text-red-800"
                                             role="alert"
                                         >
                                             <strong className="font-medium">
@@ -264,7 +264,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                         <div className="mb-5">
                                             <label
                                                 htmlFor="first_name"
-                                                className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                                                className="mb-2 block text-sm font-medium text-gray-900"
                                             >
                                                 *First name
                                             </label>
@@ -274,14 +274,14 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                 name="first_name"
                                                 onChange={handleChange}
                                                 value={searchValues.first_name}
-                                                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                                                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
                                                 required
                                             />
                                         </div>
                                         <div className="mb-5">
                                             <label
                                                 htmlFor="middle_name"
-                                                className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                                                className="mb-2 block text-sm font-medium text-gray-900"
                                             >
                                                 Middle Name
                                             </label>
@@ -291,13 +291,13 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                 name="middle_name"
                                                 onChange={handleChange}
                                                 value={searchValues.middle_name}
-                                                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                                                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
                                             />
                                         </div>
                                         <div className="mb-5">
                                             <label
                                                 htmlFor="last_name"
-                                                className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                                                className="mb-2 block text-sm font-medium text-gray-900"
                                             >
                                                 *Last Name
                                             </label>
@@ -307,14 +307,14 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                 name="last_name"
                                                 onChange={handleChange}
                                                 value={searchValues.last_name}
-                                                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                                                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
                                                 required
                                             />
                                         </div>
                                         <div className="mb-5">
                                             <label
                                                 htmlFor="suffix"
-                                                className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                                                className="mb-2 block text-sm font-medium text-gray-900"
                                             >
                                                 Suffix
                                             </label>
@@ -324,13 +324,13 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                 name="suffix"
                                                 onChange={handleChange}
                                                 value={searchValues.suffix}
-                                                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                                                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
                                             />
                                         </div>
                                         <div className="mb-5">
                                             <label
                                                 htmlFor="birth_date"
-                                                className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                                                className="mb-2 block text-sm font-medium text-gray-900"
                                             >
                                                 *Birth Date
                                             </label>
@@ -340,21 +340,21 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                 name="birth_date"
                                                 onChange={handleChange}
                                                 value={searchValues.birth_date}
-                                                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                                                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
                                                 required
                                             />
                                         </div>
                                         <div className="flex justify-end">
                                             <button
                                                 type="submit"
-                                                className="w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 sm:w-auto dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                                className="w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 sm:w-auto"
                                             >
                                                 Search
                                             </button>
                                             <button
                                                 type="button"
                                                 onClick={handleClear}
-                                                className="me-2 ml-3 rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                                                className="me-2 ml-3 rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100"
                                             >
                                                 Clear
                                             </button>
@@ -362,7 +362,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                     </form>
                                 </div>
                                 <div className="w-full">
-                                    <div className="max-w p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                    <div className="max-w p-6 bg-white border border-gray-200 rounded-lg shadow">
                                         {(()=>{
                                             if(!isSearching && isDoneSearching){
                                                 if(!searchResult.first_name){
@@ -375,12 +375,12 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                         {searchResult.first_name ? (
                                             <>
                                                 <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-                                                    <table className="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
+                                                    <table className="w-full text-left text-sm text-gray-500 rtl:text-right">
                                                         <tbody>
-                                                            <tr className="border-b odd:bg-white even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                                            <tr className="border-b odd:bg-white even:bg-gray-50">
                                                                 <th
                                                                     scope="row"
-                                                                    className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+                                                                    className="whitespace-nowrap px-6 py-4 font-medium text-gray-900"
                                                                 >
                                                                     First name
                                                                 </th>
@@ -392,10 +392,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                                     </strong>
                                                                 </td>
                                                             </tr>
-                                                            <tr className="border-b odd:bg-white even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                                            <tr className="border-b odd:bg-white even:bg-gray-50">
                                                                 <th
                                                                     scope="row"
-                                                                    className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+                                                                    className="whitespace-nowrap px-6 py-4 font-medium text-gray-900"
                                                                 >
                                                                     Last name
                                                                 </th>
@@ -407,10 +407,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                                     </strong>
                                                                 </td>
                                                             </tr>
-                                                            <tr className="border-b odd:bg-white even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                                            <tr className="border-b odd:bg-white even:bg-gray-50">
                                                                 <th
                                                                     scope="row"
-                                                                    className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+                                                                    className="whitespace-nowrap px-6 py-4 font-medium text-gray-900"
                                                                 >
                                                                     Middle name
                                                                 </th>
@@ -422,10 +422,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                                     </strong>
                                                                 </td>
                                                             </tr>
-                                                            <tr className="border-b odd:bg-white even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                                            <tr className="border-b odd:bg-white even:bg-gray-50">
                                                                 <th
                                                                     scope="row"
-                                                                    className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+                                                                    className="whitespace-nowrap px-6 py-4 font-medium text-gray-900"
                                                                 >
                                                                     Suffix
                                                                 </th>
@@ -440,7 +440,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                             <tr>
                                                                 <th
                                                                     scope="row"
-                                                                    className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+                                                                    className="whitespace-nowrap px-6 py-4 font-medium text-gray-900"
                                                                 >
                                                                     Birth Date
                                                                 </th>
@@ -459,7 +459,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                     <button
                                                         type="button"
                                                         onClick={handleVerify}
-                                                        className="w-full rounded-lg bg-blue-700 px-6 py-3.5 text-center text-base font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                                        className="w-full rounded-lg bg-blue-700 px-6 py-3.5 text-center text-base font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"
                                                     >
                                                         Verify
                                                     </button>
