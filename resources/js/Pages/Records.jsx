@@ -133,6 +133,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                         response.data.verified ==
                         false
                     ) {
+                        setOpenModal(true);
                         setIsVerifying(false);
                         setIsVerified(false);
                     }
@@ -169,8 +170,24 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                         <span className="sr-only">Close modal</span>
                     </button>
                     <div className="p-4 md:p-5 text-center">
-                        <svg className="h-24 w-24 text-green-500 mx-auto mb-5"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="3"  strokeLinecap="round"  strokeLinejoin="round">  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />  <polyline points="22 4 12 14.01 9 11.01" /></svg>
-                        <h3 className="text-lg font-normal text-gray-500 dark:text-gray-400">Verified!</h3>
+                        {(() => {
+                            if(isVerified){
+                                return (
+                                    <>
+                                        <svg className="h-24 w-24 text-green-500 mx-auto mb-5"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="3"  strokeLinecap="round"  strokeLinejoin="round">  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />  <polyline points="22 4 12 14.01 9 11.01" /></svg>
+                                        <h3 className="text-lg font-normal text-gray-500 dark:text-gray-400">Verified!</h3>
+                                    </>
+                                );
+                            }
+                            if(verificationStatus == false){
+                                return (
+                                    <>
+                                        <svg className="h-24 w-24 text-red-500 mx-auto mb-5"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round">  <circle cx="12" cy="12" r="10" />  <line x1="12" y1="8" x2="12" y2="12" />  <line x1="12" y1="16" x2="12.01" y2="16" /></svg>
+                                        <h3 className="text-lg font-normal text-gray-500 dark:text-gray-400">Verification Failed!</h3>
+                                    </>
+                                );
+                            }
+                        })()}
                     </div>
                 </div>
             </Modal>
@@ -215,7 +232,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                             }
                         })()}
                         <div className="p-6 text-gray-900">
-                            {(() => {
+                            {/* {(() => {
                                 if(isVerified){
                                     return (
                                         <div
@@ -240,7 +257,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                         </div>
                                     );
                                 }
-                            })()}
+                            })()} */}
                             <div className="mb-6 grid gap-6 md:grid-cols-2">
                                 <div className="w-full">
                                     <form onSubmit={handleSubmit}>
