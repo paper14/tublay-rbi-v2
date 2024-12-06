@@ -232,7 +232,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                             }
                         })()}
                         <div className="p-6 text-gray-900">
-                            {/* {(() => {
+                            {(() => {
                                 if(isVerified){
                                     return (
                                         <div
@@ -257,7 +257,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                         </div>
                                     );
                                 }
-                            })()} */}
+                            })()}
                             <div className="mb-6 grid gap-6 md:grid-cols-2">
                                 <div className="w-full">
                                     <form onSubmit={handleSubmit}>
