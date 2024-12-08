@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecordsController;
+use App\Http\Middleware\HandleLog;
 use App\Models\Record;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -14,7 +15,7 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->middleware(HandleLog::class);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
