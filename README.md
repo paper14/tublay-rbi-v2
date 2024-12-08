@@ -33,3 +33,17 @@ XV
 
 tublayrbiuser
 B&eO}|XA
+
+
+# Security Sources - Read
+
+1. https://www.reddit.com/r/webdev/comments/1djih61/free_website_securityvulnerability_scan_app_or/
+2. https://github.com/w3c/webappsec-permissions-policy/blob/main/permissions-policy-explainer.md#appendix-big-changes-since-this-was-called-feature-policy
+3. https://gist.github.com/dkvadratu/b26ca51fcd056b5ed0418dd39b38f3d7
+4. https://loadforge.com/guides/enhancing-laravel-security-a-guide-to-implementing-essential-http-headers
+
+# Test Tools
+
+1. https://securityheaders.com/
+2. https://www.ssllabs.com/ssltest/
+3. https://www.immuniweb.com/websec/
