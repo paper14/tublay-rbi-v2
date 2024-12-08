@@ -1,8 +1,25 @@
+# Uncomment DirectoryIndex to enable maintenance mode.
+# DirectoryIndex maintenance.html 
+
+# BEGIN security
+<IfModule mod_headers.c>
+     # Header always set Content-Security-Policy "default-src 'self';"
+    Header always set X-Frame-Options "DENY"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "no-referrer"
+    Header always set Strict-Transport-Security 
+    Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains"
+    # Header always set Permissions-Policy "microphone=()"
+    Header set Permissions-Policy "geolocation=(), midi=(), sync-xhr=(), autoplay=(), camera=(), fullscreen=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), publickey-credentials-get=(), usb=()"
+</IfModule>
+
 <IfModule mod_rewrite.c>
+
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
     </IfModule>
-
+    
     RewriteEngine On
 
     # Handle Authorization MemberHeader
