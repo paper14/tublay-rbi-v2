@@ -66,15 +66,18 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
 
                         <main className="mt-6">
                             <div className="grid gap-6 lg:grid-cols-1 lg:gap-8">
-                                <div className='text-center'>
-                                    <div className='text-8xl'>Tublay RBI V2</div>
+                                <div className="text-center">
+                                    <div className="text-8xl">
+                                        Tublay RBI V2
+                                    </div>
                                 </div>
                             </div>
                         </main>
 
                         <footer className="py-16 text-center text-sm text-black">
                             {/* Laravel v{laravelVersion} (PHP v{phpVersion}) */}
-                            Local Civil Registry Office - Municipality of Tublay, Benguet
+                            Local Civil Registry Office - Municipality of
+                            Tublay, Benguet
                         </footer>
                     </div>
                 </div>

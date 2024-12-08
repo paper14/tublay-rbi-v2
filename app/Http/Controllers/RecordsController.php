@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Record;
 use Inertia\Inertia;
@@ -11,15 +13,17 @@ use Inertia\Response;
 
 class RecordsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {   
         // return Inertia::render('Records');
+        Log::info('Records Page', [$request->method(), $request->ip(), Auth::user()]);
         return Inertia::render('Records', [
             'NID_PUBLIC_API_KEY' => env("NID_PUBLIC_API_KEY")
         ]);
     }
 
     public function search(Request $request){
+        Log::info('Records Page - Search', [$request->method(), $request->ip(), Auth::user()]);
 
         if($request->suffix == ''){
             $request['suffix'] = 'N/A';
@@ -37,6 +41,7 @@ class RecordsController extends Controller
                 $dataRes['extension'] = "";
             }
         }
+
         return $dataRes;
     }
 
@@ -52,6 +57,8 @@ class RecordsController extends Controller
     }
 
     public function validate(Request $request){
+        Log::info('Records Page - Validate', [$request->method(), $request->ip(), Auth::user()]);
+
         $authorizeResponse = Http::post('https://ws.everify.gov.ph/api/auth', [
             'client_id' => env("NID_CLIENT_ID"),
             'client_secret' => env("NID_CLIENT_SECRET")
@@ -67,9 +74,6 @@ class RecordsController extends Controller
                 "face_liveness_session_id" => $request->face_liveness_session_id
             ]);
             return json_decode($queryResponse)->data;
-        }
-        
-
-        
+        }  
     }
 }

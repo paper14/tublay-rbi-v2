@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -33,6 +34,8 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        Log::info('User Logged In', [$request->method(), $request->ip(), $request->username]);
+
         return redirect()->intended(route('dashboard', absolute: false));
     }
 
@@ -46,6 +49,8 @@ class AuthenticatedSessionController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
+
+        Log::info('User Logged Out', [$request->method(), $request->ip(), $request->username]);
 
         return redirect('/');
     }
