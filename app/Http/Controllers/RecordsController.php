@@ -25,17 +25,25 @@ class RecordsController extends Controller
     public function search(Request $request){
         Log::info('Records Page - Search', [$request->method(), $request->ip(), Auth::user()]);
 
+        
+
         if($request->suffix == ''){
             $request['suffix'] = 'N/A';
         }
 
-        $dataRes = Record::where([
+        $searchParams = [
             ['first_name', '=', $request->first_name],
-            ['middle_name', '=', $request->middle_name],
             ['last_name', '=', $request->last_name],
             ['extension', '=', $request->suffix],
             ['date_of_birth', '=', $request->birth_date]
-        ])->first();
+        ];
+
+        if($request->no_middle_name == false){
+            $searchParams[] = ['middle_name', '=', $request->middle_name];
+        }
+        // error_log($request->no_middle_name);
+        
+        $dataRes = Record::where($searchParams)->first();
         if($dataRes){
             if($dataRes['extension'] == 'N/A'){
                 $dataRes['extension'] = "";

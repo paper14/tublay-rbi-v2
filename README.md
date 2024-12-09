@@ -29,7 +29,7 @@ XV
 - Have a Show All button to display all the data.
 - Have an option to print the data from RBI and National ID
 - In the National ID printing include the photo.
-- Have a no lastname checkbox
+- Have a no middlename checkbox - DONE
 
 tublayrbiuser
 B&eO}|XA

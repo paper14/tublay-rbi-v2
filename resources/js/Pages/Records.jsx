@@ -11,6 +11,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
         middle_name: '',
         suffix: '',
         birth_date: '',
+        no_middle_name: false
     });
     const [searchResult, setSearchResult] = useState({});
     const [verificationResult, setVerificationResult] = useState({});
@@ -29,10 +30,18 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
     function handleChange(e) {
         const key = e.target.id;
         const value = e.target.value;
-        setSearchValues((searchValues) => ({
-            ...searchValues,
-            [key]: value,
-        }));
+        if(e.target.id == 'no_middle_name') {
+            setSearchValues((searchValues) => ({
+                ...searchValues,
+                [key]: e.target.checked,
+            }));
+        } else {
+            setSearchValues((searchValues) => ({
+                ...searchValues,
+                [key]: value,
+            }));
+        }
+        
         setSearchResult({});
         setVerificationResult({});
     }
@@ -45,6 +54,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
             middle_name: '',
             suffix: '',
             birth_date: '',
+            no_middle_name: ''
         });
         setSearchResult({});
         setVerificationResult({});
@@ -278,7 +288,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                 required
                                             />
                                         </div>
-                                        <div className="mb-5">
+                                        <div className="mb-3">
                                             <label
                                                 htmlFor="middle_name"
                                                 className="mb-2 block text-sm font-medium text-gray-900"
@@ -293,6 +303,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                 value={searchValues.middle_name}
                                                 className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
                                             />
+                                        </div>
+                                        <div className="flex items-center mb-5">
+                                            <input id="no_middle_name" name="no_middle_name" type="checkbox" onChange={handleChange} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"/>
+                                            <label htmlFor="no_middle_name" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No middle name?</label>
                                         </div>
                                         <div className="mb-5">
                                             <label
