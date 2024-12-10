@@ -1,6 +1,6 @@
+import Modal from '@/Components/Modal';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
-import Modal from '@/Components/Modal';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
@@ -11,7 +11,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
         middle_name: '',
         suffix: '',
         birth_date: '',
-        no_middle_name: false
+        no_middle_name: false,
     });
     const [searchResult, setSearchResult] = useState({});
     const [verificationResult, setVerificationResult] = useState({});
@@ -22,6 +22,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
     const [isVerifying, setIsVerifying] = useState(false);
     const [verificationStatus, setVerificationStatus] = useState(true);
     const [openModal, setOpenModal] = useState(false);
+    const [openRBIDataModal, setOpenRBIDataModal] = useState(false);
 
     useEffect(() => {
         // console.log("NID_PUBLIC_API_KEY: ", NID_PUBLIC_API_KEY)
@@ -30,7 +31,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
     function handleChange(e) {
         const key = e.target.id;
         const value = e.target.value;
-        if(e.target.id == 'no_middle_name') {
+        if (e.target.id == 'no_middle_name') {
             setSearchValues((searchValues) => ({
                 ...searchValues,
                 [key]: e.target.checked,
@@ -41,7 +42,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                 [key]: value,
             }));
         }
-        
+
         setSearchResult({});
         setVerificationResult({});
     }
@@ -54,7 +55,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
             middle_name: '',
             suffix: '',
             birth_date: '',
-            no_middle_name: ''
+            no_middle_name: '',
         });
         setSearchResult({});
         setVerificationResult({});
@@ -68,6 +69,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
     }
 
     function handleVerify(e) {
+        console.log('Verify');
         setIsVerified(false);
         setIsVerifying(true);
         setIsLoading(true);
@@ -99,7 +101,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
             .catch(function (error) {
                 // console.log(error);
                 setIsSearching(false);
-                setIsSearching(true)
+                setIsSearching(true);
             });
     }
 
@@ -113,9 +115,9 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                 apiAuthenticate(data.result.session_id);
             })
             .catch((err) => {
-                // console.log('error', err);
+                console.log('error', err);
                 setIsLoading(false);
-                setIsVerifying(false)
+                setIsVerifying(false);
             });
     }
 
@@ -124,7 +126,9 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
             .post('/records/api/validate', {
                 first_name: searchResult.first_name,
                 last_name: searchResult.last_name,
-                middle_name: searchResult.middle_name,
+                middle_name: searchValues.no_middle_name
+                    ? null
+                    : searchResult.middle_name,
                 suffix: searchResult.extension,
                 birth_date: searchResult.date_of_birth,
                 face_liveness_session_id: liveness_session_id,
@@ -139,10 +143,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                         setOpenModal(true);
                         setIsVerifying(false);
                         setIsVerified(true);
-                    } else if (
-                        response.data.verified ==
-                        false
-                    ) {
+                    } else if (response.data.verified == false) {
                         setOpenModal(true);
                         setIsVerifying(false);
                         setIsVerified(false);
@@ -158,7 +159,14 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
     }
 
     const handleCloseModal = () => {
-        setOpenModal(false)
+        setOpenModal(false);
+    };
+
+    const handleOpenRBIDataModal = () => {
+        setOpenRBIDataModal(true);
+    };
+    const handleCloseRBIDataModal = () => {
+        setOpenRBIDataModal(false);
     };
 
     return (
@@ -172,32 +180,529 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
             <Head title="Records" />
 
             <Modal show={openModal} onClose={handleCloseModal}>
-                <div className="relative bg-white rounded-lg shadow">
-                    <button type="button" onClick={handleCloseModal} className="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="popup-modal">
-                        <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                <div className="relative rounded-lg bg-white shadow">
+                    <button
+                        type="button"
+                        onClick={handleCloseModal}
+                        className="absolute end-2.5 top-3 ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900"
+                        data-modal-hide="popup-modal"
+                    >
+                        <svg
+                            className="h-3 w-3"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 14 14"
+                        >
+                            <path
+                                stroke="currentColor"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                            />
                         </svg>
                         <span className="sr-only">Close modal</span>
                     </button>
-                    <div className="p-4 md:p-5 text-center">
+                    <div className="p-4 text-center md:p-5">
                         {(() => {
-                            if(isVerified){
+                            if (isVerified) {
                                 return (
                                     <>
-                                        <svg className="h-24 w-24 text-green-500 mx-auto mb-5"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="3"  strokeLinecap="round"  strokeLinejoin="round">  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />  <polyline points="22 4 12 14.01 9 11.01" /></svg>
-                                        <h3 className="text-lg font-normal text-gray-500">Verified!</h3>
+                                        <svg
+                                            className="mx-auto mb-5 h-24 w-24 text-green-500"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="3"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                        >
+                                            {' '}
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />{' '}
+                                            <polyline points="22 4 12 14.01 9 11.01" />
+                                        </svg>
+                                        <h3 className="text-lg font-normal text-gray-500">
+                                            Verified!
+                                        </h3>
                                     </>
                                 );
                             }
-                            if(verificationStatus == false){
+                            if (verificationStatus == false) {
                                 return (
                                     <>
-                                        <svg className="h-24 w-24 text-red-500 mx-auto mb-5"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round">  <circle cx="12" cy="12" r="10" />  <line x1="12" y1="8" x2="12" y2="12" />  <line x1="12" y1="16" x2="12.01" y2="16" /></svg>
-                                        <h3 className="text-lg font-normal text-gray-500">Verification Failed!</h3>
+                                        <svg
+                                            className="mx-auto mb-5 h-24 w-24 text-red-500"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                        >
+                                            {' '}
+                                            <circle
+                                                cx="12"
+                                                cy="12"
+                                                r="10"
+                                            />{' '}
+                                            <line
+                                                x1="12"
+                                                y1="8"
+                                                x2="12"
+                                                y2="12"
+                                            />{' '}
+                                            <line
+                                                x1="12"
+                                                y1="16"
+                                                x2="12.01"
+                                                y2="16"
+                                            />
+                                        </svg>
+                                        <h3 className="text-lg font-normal text-gray-500">
+                                            Verification Failed!
+                                        </h3>
                                     </>
                                 );
                             }
                         })()}
+                    </div>
+                </div>
+            </Modal>
+
+            <Modal show={openRBIDataModal} onClose={handleCloseRBIDataModal}>
+                <div className="relative rounded-lg bg-white shadow">
+                    {/* Modal header  */}
+                    <div className="flex items-center justify-between rounded-t border-b p-4 md:p-5 dark:border-gray-600">
+                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                            RBI
+                        </h3>
+                        <button
+                            type="button"
+                            onClick={handleCloseRBIDataModal}
+                            className="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
+                            data-modal-hide="default-modal"
+                        >
+                            <svg
+                                className="h-3 w-3"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 14 14"
+                            >
+                                <path
+                                    stroke="currentColor"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                                />
+                            </svg>
+                            <span className="sr-only">Close modal</span>
+                        </button>
+                    </div>
+                    <div className="p-4 text-center md:p-5">
+                        <div className="relative h-[50vh] overflow-x-auto shadow-md sm:rounded-lg">
+                            <table className="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
+                                <tbody>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Sitio
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.sitio}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Barangay
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.barangay}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            House Number
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.house_number}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Household Number
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.household_number}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Last Name
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.last_name}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            First Name
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.first_name}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Middle Name
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.middle_name}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Ext Name
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.extension}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Citizenship
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.citizenship}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Nationality
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.nationality}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Relationship to HH Head
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {
+                                                searchResult.relationship_to_hh_head
+                                            }
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Gender
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.gender}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Civil Status
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.civil_status}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Place of Birth
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.place_of_birth}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            POB Province
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.pob_province}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Date of Birth
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.date_of_birth}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Registered Voter
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.registered_voter}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Birth Registration
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.birth_registration}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Marriage Registration
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.marriage_registration}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Religion
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.religion}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Ethnic Group
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.ethnic_group}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Occupation
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.occupation}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Educational Attainment
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {
+                                                searchResult.educational_attainment
+                                            }
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Skills
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.skills}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Persons w/ Disabilities
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {
+                                                searchResult.persons_with_disabilities
+                                            }
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Variation
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.variation}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Date of Death
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.date_of_death}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Place of Death
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.place_of_death}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Cause of Death
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.cause_of_death}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Reason of Out-Migration
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {
+                                                searchResult.reason_of_outmigration
+                                            }
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Electricity
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.electricity}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Pension
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.pension}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Sanitation
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.sanitation}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            DRRM Skills
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {searchResult.drrm_skills}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            House Construction Materials
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {
+                                                searchResult.house_construction_materials
+                                            }
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </Modal>
@@ -213,7 +718,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             role="status"
                                             className="absolute left-1/2 top-2/4 z-20 -translate-x-1/2 -translate-y-1/2"
                                         >
-                                            <div className='flex justify-center items-center'>
+                                            <div className="flex items-center justify-center">
                                                 <svg
                                                     aria-hidden="true"
                                                     className="h-8 w-8 animate-spin fill-blue-600 text-gray-200"
@@ -230,8 +735,11 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                         fill="currentFill"
                                                     />
                                                 </svg>
-                                                <div className='ml-3 text-center'>
-                                                    {isVerifying ? 'Verifying...' : 'Loading...'} Plase Wait...
+                                                <div className="ml-3 text-center">
+                                                    {isVerifying
+                                                        ? 'Verifying...'
+                                                        : 'Loading...'}{' '}
+                                                    Plase Wait...
                                                 </div>
                                             </div>
                                         </div>
@@ -243,7 +751,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                         })()}
                         <div className="p-6 text-gray-900">
                             {(() => {
-                                if(isVerified){
+                                if (isVerified) {
                                     return (
                                         <div
                                             className="mb-4 mt-3 rounded-lg bg-green-50 p-4 text-center text-lg text-green-800"
@@ -255,7 +763,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                         </div>
                                     );
                                 }
-                                if(verificationStatus == false){
+                                if (verificationStatus == false) {
                                     return (
                                         <div
                                             className="mb-4 mt-3 rounded-lg bg-red-50 p-4 text-center text-lg text-red-800"
@@ -304,9 +812,20 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                 className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
                                             />
                                         </div>
-                                        <div className="flex items-center mb-5">
-                                            <input id="no_middle_name" name="no_middle_name" type="checkbox" onChange={handleChange} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"/>
-                                            <label htmlFor="no_middle_name" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No middle name?</label>
+                                        <div className="mb-5 flex items-center">
+                                            <input
+                                                id="no_middle_name"
+                                                name="no_middle_name"
+                                                type="checkbox"
+                                                onChange={handleChange}
+                                                className="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500"
+                                            />
+                                            <label
+                                                htmlFor="no_middle_name"
+                                                className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                            >
+                                                No middle name?
+                                            </label>
                                         </div>
                                         <div className="mb-5">
                                             <label
@@ -376,14 +895,35 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                     </form>
                                 </div>
                                 <div className="w-full">
-                                    <div className="max-w p-6 bg-white border border-gray-200 rounded-lg shadow">
-                                        {(()=>{
-                                            if(!isSearching && isDoneSearching){
-                                                if(!searchResult.first_name){
-                                                    return <div className='text-center'><em>Data not found...</em></div>
+                                    <div className="max-w rounded-lg border border-gray-200 bg-white p-6 shadow">
+                                        {(() => {
+                                            if (
+                                                !isSearching &&
+                                                isDoneSearching
+                                            ) {
+                                                if (!searchResult.first_name) {
+                                                    return (
+                                                        <div className="text-center">
+                                                            <em>
+                                                                Data not
+                                                                found...
+                                                            </em>
+                                                        </div>
+                                                    );
                                                 }
-                                            } else if((!isSearching && !isDoneSearching) || (!isSearching && isDoneSearching) || (isSearching && !isDoneSearching)){
-                                                return <div className='text-center'><em>Results here...</em></div>
+                                            } else if (
+                                                (!isSearching &&
+                                                    !isDoneSearching) ||
+                                                (!isSearching &&
+                                                    isDoneSearching) ||
+                                                (isSearching &&
+                                                    !isDoneSearching)
+                                            ) {
+                                                return (
+                                                    <div className="text-center">
+                                                        <em>Results here...</em>
+                                                    </div>
+                                                );
                                             }
                                         })()}
                                         {searchResult.first_name ? (
@@ -468,6 +1008,17 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                             </tr>
                                                         </tbody>
                                                     </table>
+                                                    <div className="text-right">
+                                                        <button
+                                                            onClick={
+                                                                handleOpenRBIDataModal
+                                                            }
+                                                            type="button"
+                                                            className="mb-2 mr-2 mt-1 rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100"
+                                                        >
+                                                            More details . . .
+                                                        </button>
+                                                    </div>
                                                 </div>
                                                 <div className="mt-5">
                                                     <button
@@ -479,7 +1030,9 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                     </button>
                                                 </div>
                                             </>
-                                        ) : ('')}
+                                        ) : (
+                                            ''
+                                        )}
                                     </div>
                                 </div>
                             </div>

@@ -16,6 +16,7 @@ class RecordsController extends Controller
     public function index(Request $request)
     {   
         // return Inertia::render('Records');
+        // error_log(env("NID_PUBLIC_API_KEY"));
         Log::info('Records Page', [$request->method(), $request->ip(), Auth::user()]);
         return Inertia::render('Records', [
             'NID_PUBLIC_API_KEY' => env("NID_PUBLIC_API_KEY")
