@@ -14,7 +14,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
         no_middle_name: false,
     });
     const [searchResult, setSearchResult] = useState({});
-    const [verificationResult, setVerificationResult] = useState({});
+    const [natIDResult, setNatIDResult] = useState({});
     const [isSearching, setIsSearching] = useState(false);
     const [isDoneSearching, setIsDoneSearching] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -23,6 +23,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
     const [verificationStatus, setVerificationStatus] = useState(true);
     const [openModal, setOpenModal] = useState(false);
     const [openRBIDataModal, setOpenRBIDataModal] = useState(false);
+    const [openNatIDDataModal, setOpenNatIDDataModal] = useState(false);
 
     useEffect(() => {
         // console.log("NID_PUBLIC_API_KEY: ", NID_PUBLIC_API_KEY)
@@ -44,7 +45,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
         }
 
         setSearchResult({});
-        setVerificationResult({});
+        setNatIDResult({});
     }
 
     function handleClear(e) {
@@ -58,7 +59,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
             no_middle_name: '',
         });
         setSearchResult({});
-        setVerificationResult({});
+        setNatIDResult({});
         setIsSearching(true);
         setIsDoneSearching(false);
         setIsLoading(false);
@@ -73,7 +74,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
         setIsVerified(false);
         setIsVerifying(true);
         setIsLoading(true);
-        setVerificationResult({});
+        setNatIDResult({});
         startLiveness();
     }
 
@@ -134,19 +135,23 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                 face_liveness_session_id: liveness_session_id,
             })
             .then(function (response) {
-                setVerificationResult(response);
+                setNatIDResult(response);
                 setIsLoading(false);
 
                 if (response.data) {
+                    // console.log("response.data: ", response.data)
                     if (response.data.reference) {
                         // console.log("response.data.reference: ", response.data.reference)
                         setOpenModal(true);
                         setIsVerifying(false);
                         setIsVerified(true);
+                        setNatIDResult(response.data);
                     } else if (response.data.verified == false) {
                         setOpenModal(true);
                         setIsVerifying(false);
                         setIsVerified(false);
+                        setVerificationStatus(false);
+                        setNatIDResult({});
                     }
                 }
             })
@@ -167,6 +172,13 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
     };
     const handleCloseRBIDataModal = () => {
         setOpenRBIDataModal(false);
+    };
+
+    const handleOpenNatIDDataModal = () => {
+        setOpenNatIDDataModal(true);
+    };
+    const handleCloseNatIDDataModal = () => {
+        setOpenNatIDDataModal(false);
     };
 
     return (
@@ -707,6 +719,411 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                 </div>
             </Modal>
 
+            <Modal show={openNatIDDataModal} onClose={handleCloseNatIDDataModal}>
+                <div className="relative rounded-lg bg-white shadow">
+                    {/* Modal header  */}
+                    <div className="flex items-center justify-between rounded-t border-b p-4 md:p-5 dark:border-gray-600">
+                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                            National ID
+                        </h3>
+                        <button
+                            type="button"
+                            onClick={handleCloseRBIDataModal}
+                            className="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
+                            data-modal-hide="default-modal"
+                        >
+                            <svg
+                                className="h-3 w-3"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 14 14"
+                            >
+                                <path
+                                    stroke="currentColor"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                                />
+                            </svg>
+                            <span className="sr-only">Close modal</span>
+                        </button>
+                    </div>
+                    <div className="p-4 text-center md:p-5">
+                        <div className="relative h-[50vh] overflow-x-auto shadow-md sm:rounded-lg">
+                            <div className='mb-3'>
+                            <img className="h-auto max-w-xs m-auto" src={natIDResult.face_url}/>
+                            </div>
+                            <table className="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
+                                <tbody>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Address Line 1
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.address_line_1}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Address Line 2
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.address_line_2}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Barangay
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.barangay}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Birth Date
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.birth_date}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Blood Type
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.blood_type}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Country
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.country}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Email
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.email}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            First Name
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.first_name}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Full Address
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.full_address}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Full Name
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.full_name}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Gender
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {
+                                                natIDResult.gender
+                                            }
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Last Name
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.last_name}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Marital Status
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.marital_status}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Middle Name
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.middle_name}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Mobile Number
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.mobile_number}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Municipality
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.municipality}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Place of Birth
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.place_of_birth}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            POB Country
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.pob_country}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            POB Municipality
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.pob_municipality}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            POB Province
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.pob_province}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Postal Code
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.postal_code}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Present Address Line 1
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.present_address_line_1}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Present Address Line 2
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {
+                                                natIDResult.present_address_line_2
+                                            }
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Present Barangay
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.present_barangay}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Present Country
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {
+                                                natIDResult.present_country
+                                            }
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Present Full Address
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.present_full_address}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Present Municipality
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.present_municipality}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Present Postal Code
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.present_postal_code}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Present Province
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.present_province}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Province
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {
+                                                natIDResult.province
+                                            }
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Residency Status
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.residency_status}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Suffix
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.suffix}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </Modal>
+
             <div className="py-12">
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="relative block overflow-hidden bg-white shadow-sm sm:rounded-lg">
@@ -1024,10 +1441,25 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                     <button
                                                         type="button"
                                                         onClick={handleVerify}
-                                                        className="w-full rounded-lg bg-blue-700 px-6 py-3.5 text-center text-base font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                                                        className="w-full rounded-lg bg-blue-700 px-6 py-3.5 text-base font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"
                                                     >
-                                                        Verify
+                                                        <div className='inline-flex'>Verify to National ID <svg className="h-6 w-6 text-500 ml-2"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round">  <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" /></svg></div>
                                                     </button>
+                                                    {(()=>{
+                                                        if(isVerified){
+                                                            return <div className="text-right">
+                                                                <button
+                                                                    onClick={
+                                                                        handleOpenNatIDDataModal
+                                                                    }
+                                                                    type="button"
+                                                                    className="mb-2 mt-1 rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100"
+                                                                >
+                                                                    More details . . .
+                                                                </button>
+                                                            </div>
+                                                        }
+                                                    })()}
                                                 </div>
                                             </>
                                         ) : (
