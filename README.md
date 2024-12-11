@@ -25,7 +25,7 @@ XIV
 XV
 
 - Dispay data from RBI. - DONE
-- Dispay data from National ID.
+- Dispay data from National ID. - DONE
 - Make them expandable so that only few data will display. OR Modal?
 - Have a Show All button to display all the data.
 - Have an option to print the data from RBI
