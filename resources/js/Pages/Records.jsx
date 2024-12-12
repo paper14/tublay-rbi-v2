@@ -719,7 +719,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                 </div>
             </Modal>
 
-            <Modal show={openNatIDDataModal} onClose={handleCloseNatIDDataModal}>
+            <Modal
+                show={openNatIDDataModal}
+                onClose={handleCloseNatIDDataModal}
+            >
                 <div className="relative rounded-lg bg-white shadow">
                     {/* Modal header  */}
                     <div className="flex items-center justify-between rounded-t border-b p-4 md:p-5 dark:border-gray-600">
@@ -728,7 +731,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                         </h3>
                         <button
                             type="button"
-                            onClick={handleCloseRBIDataModal}
+                            onClick={handleCloseNatIDDataModal}
                             className="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
                             data-modal-hide="default-modal"
                         >
@@ -752,8 +755,11 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                     </div>
                     <div className="p-4 text-center md:p-5">
                         <div className="relative h-[50vh] overflow-x-auto shadow-md sm:rounded-lg">
-                            <div className='mb-3'>
-                            <img className="h-auto max-w-xs m-auto" src={natIDResult.face_url}/>
+                            <div className="mb-3">
+                                <img
+                                    className="m-auto h-auto max-w-xs"
+                                    src={natIDResult.face_url}
+                                />
                             </div>
                             <table className="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
                                 <tbody>
@@ -875,9 +881,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             Gender
                                         </th>
                                         <td className="px-3 py-2">
-                                            {
-                                                natIDResult.gender
-                                            }
+                                            {natIDResult.gender}
                                         </td>
                                     </tr>
                                     <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
@@ -1009,9 +1013,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             Present Address Line 2
                                         </th>
                                         <td className="px-3 py-2">
-                                            {
-                                                natIDResult.present_address_line_2
-                                            }
+                                            {natIDResult.present_address_line_2}
                                         </td>
                                     </tr>
                                     <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
@@ -1033,9 +1035,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             Present Country
                                         </th>
                                         <td className="px-3 py-2">
-                                            {
-                                                natIDResult.present_country
-                                            }
+                                            {natIDResult.present_country}
                                         </td>
                                     </tr>
                                     <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
@@ -1090,9 +1090,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             Province
                                         </th>
                                         <td className="px-3 py-2">
-                                            {
-                                                natIDResult.province
-                                            }
+                                            {natIDResult.province}
                                         </td>
                                     </tr>
                                     <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
@@ -1443,21 +1441,40 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                         onClick={handleVerify}
                                                         className="w-full rounded-lg bg-blue-700 px-6 py-3.5 text-base font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"
                                                     >
-                                                        <div className='inline-flex'>Verify to National ID <svg className="h-6 w-6 text-500 ml-2"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round">  <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" /></svg></div>
+                                                        <div className="inline-flex">
+                                                            Verify to National
+                                                            ID{' '}
+                                                            <svg
+                                                                className="text-500 ml-2 h-6 w-6"
+                                                                viewBox="0 0 24 24"
+                                                                fill="none"
+                                                                stroke="currentColor"
+                                                                strokeWidth="2"
+                                                                strokeLinecap="round"
+                                                                strokeLinejoin="round"
+                                                            >
+                                                                {' '}
+                                                                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+                                                            </svg>
+                                                        </div>
                                                     </button>
-                                                    {(()=>{
-                                                        if(isVerified){
-                                                            return <div className="text-right">
-                                                                <button
-                                                                    onClick={
-                                                                        handleOpenNatIDDataModal
-                                                                    }
-                                                                    type="button"
-                                                                    className="mb-2 mt-1 rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100"
-                                                                >
-                                                                    More details . . .
-                                                                </button>
-                                                            </div>
+                                                    {(() => {
+                                                        if (isVerified) {
+                                                            return (
+                                                                <div className="text-right">
+                                                                    <button
+                                                                        onClick={
+                                                                            handleOpenNatIDDataModal
+                                                                        }
+                                                                        type="button"
+                                                                        className="mb-2 mt-1 rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100"
+                                                                    >
+                                                                        More
+                                                                        details
+                                                                        . . .
+                                                                    </button>
+                                                                </div>
+                                                            );
                                                         }
                                                     })()}
                                                 </div>
