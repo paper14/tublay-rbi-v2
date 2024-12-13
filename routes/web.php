@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecordsController;
+use App\Http\Controllers\NationalIDVerificationController;
 use App\Http\Middleware\HandleLog;
 use App\Models\Record;
 use Illuminate\Foundation\Application;
@@ -20,6 +21,9 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::post('/national-id-verification/api/validate', [NationalIDVerificationController::class, 'validate'])->middleware(['auth', 'verified'])->name('national-id-verification');
+Route::get('/national-id-verification', [NationalIDVerificationController::class, 'index'])->middleware(['auth', 'verified'])->name('national-id-verification');
 
 Route::post('/records/api/validate', [RecordsController::class, 'validate'])->middleware(['auth', 'verified'])->name('records');
 Route::get('/records', [RecordsController::class, 'index'])->middleware(['auth', 'verified'])->name('records');

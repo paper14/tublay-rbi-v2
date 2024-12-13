@@ -1,4 +1,3 @@
-import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
@@ -20,7 +19,7 @@ export default function AuthenticatedLayout({ header, children }) {
                             <div className="flex shrink-0 items-center">
                                 <Link href="/">
                                     {/* <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" /> */}
-                                    <h1 className='font-bold'>Tublay RBI V2</h1>
+                                    <h1 className="font-bold">Tublay RBI V2</h1>
                                 </Link>
                             </div>
 
@@ -36,6 +35,14 @@ export default function AuthenticatedLayout({ header, children }) {
                                     active={route().current('records')}
                                 >
                                     Records
+                                </NavLink>
+                                <NavLink
+                                    href={route('national-id-verification')}
+                                    active={route().current(
+                                        'national-id-verification',
+                                    )}
+                                >
+                                    Nat'l ID Verification
                                 </NavLink>
                             </div>
                         </div>

@@ -11,51 +11,18 @@ use App\Models\Record;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class RecordsController extends Controller
+class NationalIDVerificationController extends Controller
 {
     public function index(Request $request)
     {   
-        // return Inertia::render('Records');
-        // error_log(env("NID_PUBLIC_API_KEY"));
-        Log::info('Records Page', [$request->method(), $request->ip(), Auth::user()]);
-        return Inertia::render('Records', [
+        Log::info('National ID Verification', [$request->method(), $request->ip(), Auth::user()]);
+        return Inertia::render('NationalIDVerification', [
             'NID_PUBLIC_API_KEY' => env("NID_PUBLIC_API_KEY")
         ]);
     }
 
-    public function search(Request $request){
-        Log::info('Records Page - Search', [$request->method(), $request->ip(), Auth::user()]);
-
-        
-
-        if($request->suffix == ''){
-            $request['suffix'] = 'N/A';
-        }
-
-        $searchParams = [
-            ['first_name', '=', $request->first_name],
-            ['last_name', '=', $request->last_name],
-            ['extension', '=', $request->suffix],
-            ['date_of_birth', '=', $request->birth_date]
-        ];
-
-        if($request->no_middle_name == false){
-            $searchParams[] = ['middle_name', '=', $request->middle_name];
-        }
-        // error_log($request->no_middle_name);
-        
-        $dataRes = Record::where($searchParams)->first();
-        if($dataRes){
-            if($dataRes['extension'] == 'N/A'){
-                $dataRes['extension'] = "";
-            }
-        }
-
-        return $dataRes;
-    }
-
     public function validate(Request $request){
-        Log::info('Records Page - Validate', [$request->method(), $request->ip(), Auth::user()]);
+        Log::info('National ID Verificaiton - Validate', [$request->method(), $request->ip(), Auth::user()]);
 
         $authorizeResponse = Http::post('https://ws.everify.gov.ph/api/auth', [
             'client_id' => env("NID_CLIENT_ID"),
