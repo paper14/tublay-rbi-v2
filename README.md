@@ -32,6 +32,7 @@ XV
 - ? Have an option to print the data from National ID
 - ? In the National ID printing include the photo.
 - Have a no middlename checkbox - DONE
+- Added a page to directly verify to national id - DONE
 
 tublayrbiuser
 B&eO}|XA

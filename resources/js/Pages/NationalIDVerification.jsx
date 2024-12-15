@@ -87,16 +87,17 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
     function apiAuthenticate(liveness_session_id) {
         axios
             .post('/national-id-verification/api/validate', {
-                first_name: searchResult.first_name,
-                last_name: searchResult.last_name,
+                first_name: searchValues.first_name,
+                last_name: searchValues.last_name,
                 middle_name: searchValues.no_middle_name
                     ? null
-                    : searchResult.middle_name,
-                suffix: searchResult.extension,
-                birth_date: searchResult.date_of_birth,
+                    : searchValues.middle_name,
+                suffix: searchValues.suffix,
+                birth_date: searchValues.birth_date,
                 face_liveness_session_id: liveness_session_id,
             })
             .then(function (response) {
+                // console.log("Res: ", response)
                 setNatIDResult(response);
                 setIsLoading(false);
 
@@ -680,33 +681,33 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                             }
                         })()}
                         <div className="p-6 text-gray-900">
-                            {(() => {
-                                if (isVerified) {
-                                    return (
-                                        <div
-                                            className="mb-4 mt-3 rounded-lg bg-green-50 p-4 text-center text-lg text-green-800"
-                                            role="alert"
-                                        >
-                                            <strong className="font-medium">
-                                                Verified!
-                                            </strong>
-                                        </div>
-                                    );
-                                }
-                                if (verificationStatus == false) {
-                                    return (
-                                        <div
-                                            className="mb-4 mt-3 rounded-lg bg-red-50 p-4 text-center text-lg text-red-800"
-                                            role="alert"
-                                        >
-                                            <strong className="font-medium">
-                                                Verification Failed!
-                                            </strong>
-                                        </div>
-                                    );
-                                }
-                            })()}
                             <div className="m-auto mb-6 sm:w-full md:w-1/2">
+                                {(() => {
+                                    if (isVerified) {
+                                        return (
+                                            <div
+                                                className="mb-4 mt-3 rounded-lg bg-green-50 p-4 text-center text-lg text-green-800"
+                                                role="alert"
+                                            >
+                                                <strong className="font-medium">
+                                                    Verified!
+                                                </strong>
+                                            </div>
+                                        );
+                                    }
+                                    if (verificationStatus == false) {
+                                        return (
+                                            <div
+                                                className="mb-4 mt-3 rounded-lg bg-red-50 p-4 text-center text-lg text-red-800"
+                                                role="alert"
+                                            >
+                                                <strong className="font-medium">
+                                                    Verification Failed!
+                                                </strong>
+                                            </div>
+                                        );
+                                    }
+                                })()}
                                 <div className="w-full">
                                     <form onSubmit={handleSubmit}>
                                         <div className="mb-5">
@@ -830,9 +831,9 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             <button
                                                 type="button"
                                                 onClick={handleClear}
-                                                className="me-2 ml-3 rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100"
+                                                className="ml-3 rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100"
                                             >
-                                                Clear
+                                                Clear All
                                             </button>
                                         </div>
                                         <div>
@@ -845,10 +846,9 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                                                     handleOpenNatIDDataModal
                                                                 }
                                                                 type="button"
-                                                                className="mb-2 mt-1 rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100"
+                                                                className="mb-2 mt-2 rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100"
                                                             >
-                                                                More details . .
-                                                                .
+                                                                More info . . .
                                                             </button>
                                                         </div>
                                                     );

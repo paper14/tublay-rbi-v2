@@ -70,7 +70,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
     }
 
     function handleVerify(e) {
-        console.log('Verify');
+        // console.log('Verify');
         setIsVerified(false);
         setIsVerifying(true);
         setIsLoading(true);
@@ -1191,7 +1191,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                     );
                                 }
                             })()}
-                            <div className="mb-6 grid gap-6 md:grid-cols-2">
+                            <div className="grid gap-6 md:grid-cols-2">
                                 <div className="w-full">
                                     <form onSubmit={handleSubmit}>
                                         <div className="mb-5">
@@ -1297,14 +1297,14 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                 type="submit"
                                                 className="w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 sm:w-auto"
                                             >
-                                                Search
+                                                Search to RBI
                                             </button>
                                             <button
                                                 type="button"
                                                 onClick={handleClear}
-                                                className="me-2 ml-3 rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100"
+                                                className="ml-3 rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100"
                                             >
-                                                Clear
+                                                Clear All
                                             </button>
                                         </div>
                                     </form>
@@ -1431,7 +1431,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                             type="button"
                                                             className="mb-2 mr-2 mt-1 rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100"
                                                         >
-                                                            More details . . .
+                                                            More info . . .
                                                         </button>
                                                     </div>
                                                 </div>
@@ -1470,7 +1470,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                                         className="mb-2 mt-1 rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100"
                                                                     >
                                                                         More
-                                                                        details
+                                                                        info
                                                                         . . .
                                                                     </button>
                                                                 </div>
