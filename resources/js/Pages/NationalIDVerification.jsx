@@ -241,14 +241,14 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
             >
                 <div className="relative rounded-lg bg-white shadow">
                     {/* Modal header  */}
-                    <div className="flex items-center justify-between rounded-t border-b p-4 md:p-5 dark:border-gray-600">
-                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                    <div className="flex items-center justify-between rounded-t border-b p-4 md:p-5">
+                        <h3 className="text-xl font-semibold text-gray-900">
                             National ID
                         </h3>
                         <button
                             type="button"
                             onClick={handleCloseNatIDDataModal}
-                            className="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
+                            className="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900"
                             data-modal-hide="default-modal"
                         >
                             <svg
@@ -277,12 +277,12 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                     src={natIDResult.face_url}
                                 />
                             </div>
-                            <table className="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
+                            <table className="w-full text-left text-sm text-gray-500 rtl:text-right">
                                 <tbody>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Address Line 1
                                         </th>
@@ -290,10 +290,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.address_line_1}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Address Line 2
                                         </th>
@@ -301,10 +301,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.address_line_2}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Barangay
                                         </th>
@@ -312,10 +312,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.barangay}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Birth Date
                                         </th>
@@ -323,10 +323,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.birth_date}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Blood Type
                                         </th>
@@ -334,10 +334,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.blood_type}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Country
                                         </th>
@@ -345,10 +345,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.country}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Email
                                         </th>
@@ -356,10 +356,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.email}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             First Name
                                         </th>
@@ -367,10 +367,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.first_name}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Full Address
                                         </th>
@@ -378,10 +378,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.full_address}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Full Name
                                         </th>
@@ -389,10 +389,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.full_name}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Gender
                                         </th>
@@ -400,10 +400,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.gender}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Last Name
                                         </th>
@@ -411,10 +411,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.last_name}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Marital Status
                                         </th>
@@ -422,10 +422,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.marital_status}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Middle Name
                                         </th>
@@ -433,10 +433,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.middle_name}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Mobile Number
                                         </th>
@@ -444,10 +444,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.mobile_number}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Municipality
                                         </th>
@@ -455,10 +455,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.municipality}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Place of Birth
                                         </th>
@@ -466,10 +466,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.place_of_birth}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             POB Country
                                         </th>
@@ -477,10 +477,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.pob_country}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             POB Municipality
                                         </th>
@@ -488,10 +488,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.pob_municipality}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             POB Province
                                         </th>
@@ -499,10 +499,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.pob_province}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Postal Code
                                         </th>
@@ -510,10 +510,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.postal_code}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Present Address Line 1
                                         </th>
@@ -521,10 +521,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.present_address_line_1}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Present Address Line 2
                                         </th>
@@ -532,10 +532,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.present_address_line_2}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Present Barangay
                                         </th>
@@ -543,10 +543,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.present_barangay}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Present Country
                                         </th>
@@ -554,10 +554,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.present_country}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Present Full Address
                                         </th>
@@ -565,10 +565,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.present_full_address}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Present Municipality
                                         </th>
@@ -576,10 +576,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.present_municipality}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Present Postal Code
                                         </th>
@@ -587,10 +587,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.present_postal_code}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Present Province
                                         </th>
@@ -598,10 +598,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.present_province}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Province
                                         </th>
@@ -609,10 +609,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.province}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Residency Status
                                         </th>
@@ -620,10 +620,10 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.residency_status}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Suffix
                                         </th>
@@ -681,7 +681,7 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                             }
                         })()}
                         <div className="p-6 text-gray-900">
-                            <div className="m-auto mb-6 sm:w-full md:w-1/2">
+                            <div className="m-auto sm:w-full md:w-1/2">
                                 {(() => {
                                     if (isVerified) {
                                         return (
@@ -753,7 +753,7 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                             />
                                             <label
                                                 htmlFor="no_middle_name"
-                                                className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                                className="ms-2 text-sm font-medium text-gray-900"
                                             >
                                                 No middle name?
                                             </label>

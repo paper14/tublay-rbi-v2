@@ -154,6 +154,12 @@ export default function AuthenticatedLayout({ header, children }) {
                         >
                             Records
                         </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route('national-id-verification')}
+                            active={route().current('national-id-verification')}
+                        >
+                            Nat'l ID Verification
+                        </ResponsiveNavLink>
                     </div>
 
                     <div className="border-t border-gray-200 pb-1 pt-4">

@@ -285,14 +285,14 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
             <Modal show={openRBIDataModal} onClose={handleCloseRBIDataModal}>
                 <div className="relative rounded-lg bg-white shadow">
                     {/* Modal header  */}
-                    <div className="flex items-center justify-between rounded-t border-b p-4 md:p-5 dark:border-gray-600">
-                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                    <div className="flex items-center justify-between rounded-t border-b p-4 md:p-5">
+                        <h3 className="text-xl font-semibold text-gray-900">
                             RBI
                         </h3>
                         <button
                             type="button"
                             onClick={handleCloseRBIDataModal}
-                            className="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
+                            className="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900"
                             data-modal-hide="default-modal"
                         >
                             <svg
@@ -315,12 +315,12 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                     </div>
                     <div className="p-4 text-center md:p-5">
                         <div className="relative h-[50vh] overflow-x-auto shadow-md sm:rounded-lg">
-                            <table className="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
+                            <table className="w-full text-left text-sm text-gray-500 rtl:text-right">
                                 <tbody>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Sitio
                                         </th>
@@ -328,10 +328,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.sitio}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Barangay
                                         </th>
@@ -339,10 +339,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.barangay}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             House Number
                                         </th>
@@ -350,10 +350,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.house_number}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Household Number
                                         </th>
@@ -361,10 +361,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.household_number}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Last Name
                                         </th>
@@ -372,10 +372,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.last_name}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             First Name
                                         </th>
@@ -383,10 +383,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.first_name}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Middle Name
                                         </th>
@@ -394,10 +394,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.middle_name}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Ext Name
                                         </th>
@@ -405,10 +405,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.extension}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Citizenship
                                         </th>
@@ -416,10 +416,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.citizenship}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Nationality
                                         </th>
@@ -427,10 +427,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.nationality}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Relationship to HH Head
                                         </th>
@@ -440,10 +440,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             }
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Gender
                                         </th>
@@ -451,10 +451,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.gender}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Civil Status
                                         </th>
@@ -462,10 +462,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.civil_status}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Place of Birth
                                         </th>
@@ -473,10 +473,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.place_of_birth}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             POB Province
                                         </th>
@@ -484,10 +484,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.pob_province}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Date of Birth
                                         </th>
@@ -495,10 +495,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.date_of_birth}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Registered Voter
                                         </th>
@@ -506,10 +506,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.registered_voter}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Birth Registration
                                         </th>
@@ -517,10 +517,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.birth_registration}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Marriage Registration
                                         </th>
@@ -528,10 +528,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.marriage_registration}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Religion
                                         </th>
@@ -539,10 +539,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.religion}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Ethnic Group
                                         </th>
@@ -550,10 +550,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.ethnic_group}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Occupation
                                         </th>
@@ -561,10 +561,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.occupation}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Educational Attainment
                                         </th>
@@ -574,10 +574,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             }
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Skills
                                         </th>
@@ -585,10 +585,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.skills}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Persons w/ Disabilities
                                         </th>
@@ -598,10 +598,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             }
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Variation
                                         </th>
@@ -609,10 +609,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.variation}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Date of Death
                                         </th>
@@ -620,10 +620,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.date_of_death}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Place of Death
                                         </th>
@@ -631,10 +631,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.place_of_death}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Cause of Death
                                         </th>
@@ -642,10 +642,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.cause_of_death}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Reason of Out-Migration
                                         </th>
@@ -655,10 +655,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             }
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Electricity
                                         </th>
@@ -666,10 +666,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.electricity}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Pension
                                         </th>
@@ -677,10 +677,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.pension}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Sanitation
                                         </th>
@@ -688,10 +688,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.sanitation}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             DRRM Skills
                                         </th>
@@ -699,10 +699,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {searchResult.drrm_skills}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             House Construction Materials
                                         </th>
@@ -725,14 +725,14 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
             >
                 <div className="relative rounded-lg bg-white shadow">
                     {/* Modal header  */}
-                    <div className="flex items-center justify-between rounded-t border-b p-4 md:p-5 dark:border-gray-600">
-                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                    <div className="flex items-center justify-between rounded-t border-b p-4 md:p-5">
+                        <h3 className="text-xl font-semibold text-gray-900">
                             National ID
                         </h3>
                         <button
                             type="button"
                             onClick={handleCloseNatIDDataModal}
-                            className="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
+                            className="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900"
                             data-modal-hide="default-modal"
                         >
                             <svg
@@ -761,12 +761,12 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                     src={natIDResult.face_url}
                                 />
                             </div>
-                            <table className="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
+                            <table className="w-full text-left text-sm text-gray-500 rtl:text-right">
                                 <tbody>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Address Line 1
                                         </th>
@@ -774,10 +774,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.address_line_1}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Address Line 2
                                         </th>
@@ -785,10 +785,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.address_line_2}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Barangay
                                         </th>
@@ -796,10 +796,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.barangay}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Birth Date
                                         </th>
@@ -807,10 +807,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.birth_date}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Blood Type
                                         </th>
@@ -818,10 +818,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.blood_type}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Country
                                         </th>
@@ -829,10 +829,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.country}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Email
                                         </th>
@@ -840,10 +840,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.email}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             First Name
                                         </th>
@@ -851,10 +851,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.first_name}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Full Address
                                         </th>
@@ -862,10 +862,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.full_address}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Full Name
                                         </th>
@@ -873,10 +873,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.full_name}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Gender
                                         </th>
@@ -884,10 +884,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.gender}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Last Name
                                         </th>
@@ -895,10 +895,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.last_name}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Marital Status
                                         </th>
@@ -906,10 +906,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.marital_status}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Middle Name
                                         </th>
@@ -917,10 +917,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.middle_name}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Mobile Number
                                         </th>
@@ -928,10 +928,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.mobile_number}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Municipality
                                         </th>
@@ -939,10 +939,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.municipality}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Place of Birth
                                         </th>
@@ -950,10 +950,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.place_of_birth}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             POB Country
                                         </th>
@@ -961,10 +961,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.pob_country}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             POB Municipality
                                         </th>
@@ -972,10 +972,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.pob_municipality}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             POB Province
                                         </th>
@@ -983,10 +983,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.pob_province}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Postal Code
                                         </th>
@@ -994,10 +994,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.postal_code}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Present Address Line 1
                                         </th>
@@ -1005,10 +1005,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.present_address_line_1}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Present Address Line 2
                                         </th>
@@ -1016,10 +1016,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.present_address_line_2}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Present Barangay
                                         </th>
@@ -1027,10 +1027,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.present_barangay}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Present Country
                                         </th>
@@ -1038,10 +1038,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.present_country}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Present Full Address
                                         </th>
@@ -1049,10 +1049,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.present_full_address}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Present Municipality
                                         </th>
@@ -1060,10 +1060,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.present_municipality}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Present Postal Code
                                         </th>
@@ -1071,10 +1071,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.present_postal_code}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Present Province
                                         </th>
@@ -1082,10 +1082,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.present_province}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Province
                                         </th>
@@ -1093,10 +1093,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.province}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Residency Status
                                         </th>
@@ -1104,10 +1104,10 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.residency_status}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900 dark:text-white"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
                                             Suffix
                                         </th>
@@ -1237,7 +1237,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             />
                                             <label
                                                 htmlFor="no_middle_name"
-                                                className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                                className="ms-2 text-sm font-medium text-gray-900"
                                             >
                                                 No middle name?
                                             </label>
@@ -1470,8 +1470,8 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                                         className="mb-2 mt-1 rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100"
                                                                     >
                                                                         More
-                                                                        info
-                                                                        . . .
+                                                                        info . .
+                                                                        .
                                                                     </button>
                                                                 </div>
                                                             );
