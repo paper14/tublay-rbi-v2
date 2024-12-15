@@ -1,6 +1,11 @@
 # Release Notes
 
-## [Unreleased](https://github.com/laravel/laravel/compare/v11.3.2...11.x)
+## [Unreleased](https://github.com/laravel/laravel/compare/v1.2.0...main)
+
+## [v1.2.0](https://github.com/laravel/laravel/compare/v11.3.2...v1.2.0) - 2024-12-15
+
+Added a National ID Verification page.
+This page will be used to directly verify a person to National ID.
 
 ## [v11.3.2](https://github.com/laravel/laravel/compare/v11.3.1...v11.3.2) - 2024-10-21
 
