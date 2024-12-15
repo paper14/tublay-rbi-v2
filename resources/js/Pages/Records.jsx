@@ -1307,6 +1307,11 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                 Clear All
                                             </button>
                                         </div>
+                                        <div className="text-sm text-gray-500">
+                                            <em>
+                                                *Note: RBI data - August 2023.
+                                            </em>
+                                        </div>
                                     </form>
                                 </div>
                                 <div className="w-full">
@@ -1336,7 +1341,9 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             ) {
                                                 return (
                                                     <div className="text-center">
-                                                        <em>Results here...</em>
+                                                        <em className="text-gray-500">
+                                                            Results here...
+                                                        </em>
                                                     </div>
                                                 );
                                             }
