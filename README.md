@@ -26,13 +26,15 @@ XV
 
 - Dispay data from RBI. - DONE
 - Dispay data from National ID. - DONE
-- ? Make them expandable so that only few data will display. OR Modal?
-- ? Have a Show All button to display all the data.
 - ? Have an option to print the data from RBI
 - ? Have an option to print the data from National ID
 - ? In the National ID printing include the photo.
 - Have a no middlename checkbox - DONE
 - Added a page to directly verify to national id - DONE
+- Add a Report Button to display the code and reference for reporting.
+    - ? In the Report possible create a report page to save the reported errors.
+    - ? In the Add Report Button add a Remarks field.
+    - ? create a report table with columns code, reference, remarks, full_name, timestamp
 
 tublayrbiuser
 B&eO}|XA
