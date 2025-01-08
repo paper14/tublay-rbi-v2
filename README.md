@@ -27,8 +27,8 @@ XV
 - Dispay data from RBI. - DONE
 - Dispay data from National ID. - DONE
 - ? Have an option to print the data from RBI
-- ? Have an option to print the data from National ID
-- ? In the National ID printing include the photo.
+- Have an option to print the data from National ID - DONE
+- In the National ID printing include the photo. - DONE
 - Have a no middlename checkbox - DONE
 - Added a page to directly verify to national id - DONE
 - Add a Report Button to display the code and reference for reporting.

@@ -184,7 +184,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
     return (
         <AuthenticatedLayout
             header={
-                <h2 className="text-xl font-semibold leading-tight text-gray-800">
+                <h2 className="text-xl font-semibold leading-tight text-gray-800 ">
                     Records
                 </h2>
             }
@@ -768,6 +768,106 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             scope="row"
                                             className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
                                         >
+                                            Full Name
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.full_name}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
+                                        >
+                                            Birth Date
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.birth_date}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
+                                        >
+                                            Gender
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.gender}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
+                                        >
+                                            Blood Type
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.blood_type}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
+                                        >
+                                            Marital Status
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.marital_status}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
+                                        >
+                                            Place of Birth
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.place_of_birth}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
+                                        >
+                                            Full Address
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.full_address}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
+                                        >
+                                            Present Full Address
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.present_full_address}
+                                        </td>
+                                    </tr>
+                                    <tr className="border-b odd:bg-white even:bg-gray-50">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
+                                        >
+                                            Residency Status
+                                        </th>
+                                        <td className="px-3 py-2">
+                                            {natIDResult.residency_status}
+                                        </td>
+                                    </tr>
+                                    
+                                    {/* <tr className="border-b odd:bg-white even:bg-gray-50">
+                                        <th
+                                            scope="row"
+                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
+                                        >
                                             Address Line 1
                                         </th>
                                         <td className="px-3 py-2">
@@ -795,30 +895,9 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                         <td className="px-3 py-2">
                                             {natIDResult.barangay}
                                         </td>
-                                    </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50">
-                                        <th
-                                            scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
-                                        >
-                                            Birth Date
-                                        </th>
-                                        <td className="px-3 py-2">
-                                            {natIDResult.birth_date}
-                                        </td>
-                                    </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50">
-                                        <th
-                                            scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
-                                        >
-                                            Blood Type
-                                        </th>
-                                        <td className="px-3 py-2">
-                                            {natIDResult.blood_type}
-                                        </td>
-                                    </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50">
+                                    </tr> */}
+                                    
+                                    {/* <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
                                             className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
@@ -828,7 +907,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                         <td className="px-3 py-2">
                                             {natIDResult.country}
                                         </td>
-                                    </tr>
+                                    </tr> */}
                                     <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
@@ -840,7 +919,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.email}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50">
+                                    {/* <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
                                             className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
@@ -850,41 +929,9 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                         <td className="px-3 py-2">
                                             {natIDResult.first_name}
                                         </td>
-                                    </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50">
-                                        <th
-                                            scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
-                                        >
-                                            Full Address
-                                        </th>
-                                        <td className="px-3 py-2">
-                                            {natIDResult.full_address}
-                                        </td>
-                                    </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50">
-                                        <th
-                                            scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
-                                        >
-                                            Full Name
-                                        </th>
-                                        <td className="px-3 py-2">
-                                            {natIDResult.full_name}
-                                        </td>
-                                    </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50">
-                                        <th
-                                            scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
-                                        >
-                                            Gender
-                                        </th>
-                                        <td className="px-3 py-2">
-                                            {natIDResult.gender}
-                                        </td>
-                                    </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50">
+                                    </tr> */}
+                                    
+                                    {/* <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
                                             className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
@@ -894,19 +941,9 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                         <td className="px-3 py-2">
                                             {natIDResult.last_name}
                                         </td>
-                                    </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50">
-                                        <th
-                                            scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
-                                        >
-                                            Marital Status
-                                        </th>
-                                        <td className="px-3 py-2">
-                                            {natIDResult.marital_status}
-                                        </td>
-                                    </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50">
+                                    </tr> */}
+                                    
+                                    {/* <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
                                             className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
@@ -916,7 +953,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                         <td className="px-3 py-2">
                                             {natIDResult.middle_name}
                                         </td>
-                                    </tr>
+                                    </tr> */}
                                     <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
@@ -928,7 +965,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                             {natIDResult.mobile_number}
                                         </td>
                                     </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50">
+                                    {/* <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
                                             className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
@@ -938,19 +975,9 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                         <td className="px-3 py-2">
                                             {natIDResult.municipality}
                                         </td>
-                                    </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50">
-                                        <th
-                                            scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
-                                        >
-                                            Place of Birth
-                                        </th>
-                                        <td className="px-3 py-2">
-                                            {natIDResult.place_of_birth}
-                                        </td>
-                                    </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50">
+                                    </tr> */}
+                                    
+                                    {/* <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
                                             className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
@@ -982,8 +1009,8 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                         <td className="px-3 py-2">
                                             {natIDResult.pob_province}
                                         </td>
-                                    </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50">
+                                    </tr> */}
+                                    {/* <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
                                             className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
@@ -993,8 +1020,8 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                         <td className="px-3 py-2">
                                             {natIDResult.postal_code}
                                         </td>
-                                    </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50">
+                                    </tr> */}
+                                    {/* <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
                                             className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
@@ -1037,19 +1064,8 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                         <td className="px-3 py-2">
                                             {natIDResult.present_country}
                                         </td>
-                                    </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50">
-                                        <th
-                                            scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
-                                        >
-                                            Present Full Address
-                                        </th>
-                                        <td className="px-3 py-2">
-                                            {natIDResult.present_full_address}
-                                        </td>
-                                    </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50">
+                                    </tr> */}
+                                    {/* <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
                                             className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
@@ -1070,8 +1086,8 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                         <td className="px-3 py-2">
                                             {natIDResult.present_postal_code}
                                         </td>
-                                    </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50">
+                                    </tr> */}
+                                    {/* <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
                                             className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
@@ -1081,8 +1097,8 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                         <td className="px-3 py-2">
                                             {natIDResult.present_province}
                                         </td>
-                                    </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50">
+                                    </tr> */}
+                                    {/* <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
                                             className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
@@ -1092,19 +1108,9 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                         <td className="px-3 py-2">
                                             {natIDResult.province}
                                         </td>
-                                    </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50">
-                                        <th
-                                            scope="row"
-                                            className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
-                                        >
-                                            Residency Status
-                                        </th>
-                                        <td className="px-3 py-2">
-                                            {natIDResult.residency_status}
-                                        </td>
-                                    </tr>
-                                    <tr className="border-b odd:bg-white even:bg-gray-50">
+                                    </tr> */}
+                                    
+                                    {/* <tr className="border-b odd:bg-white even:bg-gray-50">
                                         <th
                                             scope="row"
                                             className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
@@ -1114,7 +1120,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                         <td className="px-3 py-2">
                                             {natIDResult.suffix}
                                         </td>
-                                    </tr>
+                                    </tr> */}
                                 </tbody>
                             </table>
                         </div>
@@ -1122,7 +1128,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                 </div>
             </Modal>
 
-            <div className="py-12">
+            <div className="py-12 print:hidden">
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="relative block overflow-hidden bg-white shadow-sm sm:rounded-lg">
                         {(() => {
@@ -1470,6 +1476,13 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                             return (
                                                                 <div className="text-right">
                                                                     <button
+                                                                        onClick={window.print}
+                                                                        type="button"
+                                                                        className="mb-2 mt-1 rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100 mr-2"
+                                                                    >
+                                                                        Print
+                                                                    </button>
+                                                                    <button
                                                                         onClick={
                                                                             handleOpenNatIDDataModal
                                                                         }
@@ -1477,8 +1490,7 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                                                                         className="mb-2 mt-1 rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100"
                                                                     >
                                                                         More
-                                                                        info . .
-                                                                        .
+                                                                        info . . .
                                                                     </button>
                                                                 </div>
                                                             );
@@ -1494,6 +1506,160 @@ export default function Records({ NID_PUBLIC_API_KEY }) {
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            {/* hidden print:block */}
+            <div className='print-container hidden print:block'>
+                <div className='mt-2 grid grid-cols-3'>
+                    <div className=' justify-items-center'>
+                        <img style={{width: 70}} src='/images/tublay-logo.png'/>
+                    </div>
+                    <div className='text-center '>
+                        <div className='leading-3 text-sm font-bold'>REPUBLIC OF THE PHILIPPINES</div>
+                        <div className='leading-3 text-xs'>PROVINCE OF BENGUET</div>
+                        <div className='leading-3 text-xs'>Municipality of Tublay</div>
+                        <div className='leading-3 text-xs font-bold mt-2'>OFFICE OF THE LOCAL CIVIL REGISTRAR</div>
+                        <div className='leading-3 text-xs'>RELYING PARTNER</div>
+                        <div className='leading-3 text-xs font-bold'>NATIONAL ID AUTHENTICATION SERVICES</div>
+                    </div>
+                    <div className=' justify-items-center'>
+                        <div><img style={{width: 70}} className="float-left" src='/images/bagong-pilipinas-logo.png'/><img style={{width: 70}} className='float-left ml-2' src='/images/lcro-logo.png'/></div>
+                    </div>
+                </div>
+                <div className='text-center font-bold mt-5 text-lg'>AUTHENTICATION RESULT</div>
+                <div>
+                    <div className="mb-3 mt-3">
+                        <img
+                            className="m-auto h-auto max-w-xs float-right"
+                            src={natIDResult.face_url}
+                        />
+                        <div className='clear-both'></div>
+                    </div>
+                    <table className="w-full text-left text-sm text-gray-500 rtl:text-right">
+                        <tbody>
+                            <tr className="border-b odd:bg-white even:bg-gray-50">
+                                <th
+                                    scope="row"
+                                    className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
+                                >
+                                    Full Name
+                                </th>
+                                <td className="px-3 py-2">
+                                    {natIDResult.full_name}
+                                </td>
+                            </tr>
+                            <tr className="border-b odd:bg-white even:bg-gray-50">
+                                <th
+                                    scope="row"
+                                    className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
+                                >
+                                    Birth Date
+                                </th>
+                                <td className="px-3 py-2">
+                                    {natIDResult.birth_date}
+                                </td>
+                            </tr>
+                            <tr className="border-b odd:bg-white even:bg-gray-50">
+                                <th
+                                    scope="row"
+                                    className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
+                                >
+                                    Gender
+                                </th>
+                                <td className="px-3 py-2">
+                                    {natIDResult.gender}
+                                </td>
+                            </tr>
+                            <tr className="border-b odd:bg-white even:bg-gray-50">
+                                <th
+                                    scope="row"
+                                    className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
+                                >
+                                    Blood Type
+                                </th>
+                                <td className="px-3 py-2">
+                                    {natIDResult.blood_type}
+                                </td>
+                            </tr>
+                            <tr className="border-b odd:bg-white even:bg-gray-50">
+                                <th
+                                    scope="row"
+                                    className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
+                                >
+                                    Marital Status
+                                </th>
+                                <td className="px-3 py-2">
+                                    {natIDResult.marital_status}
+                                </td>
+                            </tr>
+                            <tr className="border-b odd:bg-white even:bg-gray-50">
+                                <th
+                                    scope="row"
+                                    className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
+                                >
+                                    Place of Birth
+                                </th>
+                                <td className="px-3 py-2">
+                                    {natIDResult.place_of_birth}
+                                </td>
+                            </tr>
+                            <tr className="border-b odd:bg-white even:bg-gray-50">
+                                <th
+                                    scope="row"
+                                    className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
+                                >
+                                    Full Address
+                                </th>
+                                <td className="px-3 py-2">
+                                    {natIDResult.full_address}
+                                </td>
+                            </tr>
+                            <tr className="border-b odd:bg-white even:bg-gray-50">
+                                <th
+                                    scope="row"
+                                    className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
+                                >
+                                    Present Full Address
+                                </th>
+                                <td className="px-3 py-2">
+                                    {natIDResult.present_full_address}
+                                </td>
+                            </tr>
+                            <tr className="border-b odd:bg-white even:bg-gray-50">
+                                <th
+                                    scope="row"
+                                    className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
+                                >
+                                    Residency Status
+                                </th>
+                                <td className="px-3 py-2">
+                                    {natIDResult.residency_status}
+                                </td>
+                            </tr>
+                            <tr className="border-b odd:bg-white even:bg-gray-50">
+                                <th
+                                    scope="row"
+                                    className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
+                                >
+                                    Email
+                                </th>
+                                <td className="px-3 py-2">
+                                    {natIDResult.email}
+                                </td>
+                            </tr>
+                            <tr className="border-b odd:bg-white even:bg-gray-50">
+                                <th
+                                    scope="row"
+                                    className="whitespace-nowrap px-3 py-2 font-medium text-gray-900"
+                                >
+                                    Mobile Number
+                                </th>
+                                <td className="px-3 py-2">
+                                    {natIDResult.mobile_number}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </AuthenticatedLayout>
