@@ -31,10 +31,11 @@ XV
 - In the National ID printing include the photo. - DONE
 - Have a no middlename checkbox - DONE
 - Added a page to directly verify to national id - DONE
-- Add a Report Button to display the code and reference for reporting.
+- ? Add a Report Button to display the code and reference for reporting - if there are errors in data or data not complete.
     - ? In the Report possible create a report page to save the reported errors.
     - ? In the Add Report Button add a Remarks field.
     - ? create a report table with columns code, reference, remarks, full_name, timestamp
+    - Added a modal to copy the code and reference - DONE
 
 tublayrbiuser
 B&eO}|XA

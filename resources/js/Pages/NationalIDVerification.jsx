@@ -21,6 +21,7 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
     const [verificationStatus, setVerificationStatus] = useState(true);
     const [openModal, setOpenModal] = useState(false);
     const [openNatIDDataModal, setOpenNatIDDataModal] = useState(false);
+    const [openCodeModal, setOpenCodeModal] = useState(false);
 
     function handleChange(e) {
         const key = e.target.id;
@@ -57,6 +58,7 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
         setIsVerifying(false);
         setVerificationStatus(true);
         setOpenModal(false);
+        setOpenCodeModal(false);
     }
 
     function handleSubmit(e) {
@@ -133,6 +135,14 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
     const handleCloseNatIDDataModal = () => {
         setOpenNatIDDataModal(false);
     };
+
+    const handleOpenCodeModal = () => {
+        setOpenCodeModal(true);
+    }
+
+    const handleCloseCodeModal = () => {
+        setOpenCodeModal(false);
+    }
 
     return (
         <AuthenticatedLayout
@@ -638,6 +648,38 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                 </div>
             </Modal>
 
+            <Modal show={openCodeModal} onClose={handleCloseCodeModal}>
+                <div className="relative rounded-lg bg-white shadow">
+                    <button
+                        type="button"
+                        onClick={handleCloseCodeModal}
+                        className="absolute end-2.5 top-3 ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900"
+                        data-modal-hide="popup-modal"
+                    >
+                        <svg
+                            className="h-3 w-3"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 14 14"
+                        >
+                            <path
+                                stroke="currentColor"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                            />
+                        </svg>
+                        <span className="sr-only">Close modal</span>
+                    </button>
+                    <div className="p-4 text-center md:p-5">
+                        <div><strong>Code:</strong> {natIDResult.code}</div>
+                        <div><strong>Reference:</strong> {natIDResult.reference}</div>
+                    </div>
+                </div>
+            </Modal>
+
             <div className="py-12 print:hidden">
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="relative block overflow-hidden bg-white shadow-sm sm:rounded-lg">
@@ -841,6 +883,13 @@ export default function NationalIDVerification({ NID_PUBLIC_API_KEY }) {
                                                 if (isVerified) {
                                                     return (
                                                         <div className="text-right">
+                                                            <button
+                                                                onClick={handleOpenCodeModal}
+                                                                type="button"
+                                                                className="mb-2 mt-1 rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100 mr-2"
+                                                            >
+                                                                Code & Reference
+                                                            </button>
                                                             <button
                                                                 onClick={window.print}
                                                                 type="button"
