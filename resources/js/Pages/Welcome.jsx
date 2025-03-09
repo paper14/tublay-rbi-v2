@@ -67,8 +67,28 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         <main className="mt-6">
                             <div className="grid gap-6 lg:grid-cols-1 lg:gap-8">
                                 <div className="text-center">
-                                    <div className="text-8xl">
+                                    <div className="text-8xl font-bold">
                                         Tublay RBI V2
+                                    </div>
+                                    <div className="mt-20 columns-3">
+                                        <div className="flex items-center justify-center">
+                                            <img
+                                                width="200"
+                                                src="/images/tublay-logo.png"
+                                            />
+                                        </div>
+                                        <div className="flex items-center justify-center">
+                                            <img
+                                                width="200"
+                                                src="/images/lcro-logo.png"
+                                            />
+                                        </div>
+                                        <div className="flex items-center justify-center">
+                                            <img
+                                                width="200"
+                                                src="/images/bagong-pilipinas-logo.png"
+                                            />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
